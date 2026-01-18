@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public Enums.TaskStatus Status { get; set; }
+        public Enums.TaskStatus Status { get; set; } = Enums.TaskStatus.Pending;
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
         public int Priority { get; set; }

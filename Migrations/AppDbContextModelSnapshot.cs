@@ -13,6 +13,7 @@ namespace TaskRtUpdater.Migrations
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
     {
+
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
@@ -65,6 +66,7 @@ namespace TaskRtUpdater.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Status")
+                        .HasConversion<string>()
                         .IsRequired()
                         .HasColumnType("text");
 

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+  const ws = new WebSocket("wss://taskrtupdater-production.up.railway.app/ws");
+  ws.onopen = () => console.log("connected");
+  ws.onmessage = e => console.log("message:", e.data);
+  ws.onerror = e => console.log("error", e);
+</script>
+</body>
+</html>
