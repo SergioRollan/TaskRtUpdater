@@ -35,8 +35,8 @@ namespace TaskRtUpdater.src.Application.UseCases
                 if (incompleteDependencies.Any())
                 {
                     throw new InvalidTaskStatusException(
-                        $"Task status cannot be updated since there"
-                        + (incompleteDependencies.Count == 1 ? "is" : "are")
+                        $"Task status cannot be updated since there "
+                        + (incompleteDependencies.Count == 1 ? "is " : "are ")
                         + incompleteDependencies.Count
                         + " dependenc"
                         + (incompleteDependencies.Count == 1 ? "y":"ies") 
