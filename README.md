@@ -15,18 +15,21 @@ Swagger UI:
 ```
 https://taskrtupdater-production.up.railway.app/swagger
 ```
+<img width="975" height="854" alt="image" src="https://github.com/user-attachments/assets/6e11bce4-0313-4df6-98ab-f0ce48fb979d" />
 
 Websocket subscription:
 
 ```
 (download ws-test-html and run it normally; press F12 to see real time actions from all other users)
 ```
+<img width="415" height="196" alt="image" src="https://github.com/user-attachments/assets/1ec2c66a-fda3-4215-ab31-b5f021a697a5" />
 
 Database URL:
 
 ```
 psql -h shortline.proxy.rlwy.net -U postgres -p 12002 -d railway -f [Script Name].postgres.sql (password is needed)
 ```
+<img width="1790" height="349" alt="image" src="https://github.com/user-attachments/assets/c16e1dc1-f3da-4a5a-a223-253e1f3a95be" />
 
 ---
 
