@@ -67,6 +67,7 @@ namespace TaskRtUpdater.Migrations
 
                     b.Property<string>("Status")
                         .HasConversion<string>()
+                        .HasDefaultValue(src.Enums.TaskStatus.Pending)
                         .IsRequired()
                         .HasColumnType("text");
 
