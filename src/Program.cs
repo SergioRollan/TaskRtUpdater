@@ -9,18 +9,28 @@ using TaskRtUpdater.src.Presentation.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL"); // Returns null if not in railway
-if (string.IsNullOrEmpty(connectionString))
+var rawConnectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+string connectionString;
+if (!string.IsNullOrEmpty(rawConnectionString))
 {
-    connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    var uri = new Uri(rawConnectionString);
+    var userInfo = uri.UserInfo.Split(':', 2);
+    connectionString =
+        $"Host={uri.Host};" +
+        $"Port={uri.Port};" +
+        $"Database={uri.AbsolutePath.TrimStart('/')};" +
+        $"Username={userInfo[0]};" +
+        $"Password={userInfo[1]};" +
+        $"SSL Mode=Require;Trust Server Certificate=true";
 }
-
-if (string.IsNullOrEmpty(connectionString))
+else
 {
-    throw new Exception("No database connection string configured.");
+    connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+        ?? throw new Exception("No database connection string configured.");
 }
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
+
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<INotificationService, WebSocketNotificationService>();
