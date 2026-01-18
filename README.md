@@ -156,16 +156,32 @@ src/
 
 ---
 
-## 🛠️ Tech Stack
+## 🔮 Possible Improvements
 
-- .NET 8 / C#
-- ASP.NET Core Web API
-- PostgreSQL
-- WebSockets
-- Swagger / OpenAPI
-- Railway (for deployment)
+While the current implementation is production-ready, the following enhancements could further improve scalability, robustness and maintainability:
 
----
+- **Authentication**
+  - JWT-based authentication (or API Key)
+  - Role-based access control (RBAC)
+
+- **Thorough Concurrency Control**
+  - Row versioning to prevent concurrent update conflicts
+
+- **Priority distinction**
+  - Currently, the "priority" attribute serves no purpose. Features could be added that may warn the users if an urgent task has been delayed for too long.
+
+- **Pagination & Filtering**
+  - Advanced querying for task lists (status, priority, date ranges)
+
+- **Soft Deletes**
+  - Logical deletion to preserve historical data
+
+- **Newer .NET Versions**
+  - Support .NET 10 (the actual framework that was used in development), when Railway may offer support for it
+
+- **API Versioning**
+  - Support for backward-compatible API evolution
+
 
 ## 👤 Author
 
